@@ -12,7 +12,7 @@ export default function AddNewsDialog({ closeModal }) {
     const lang = window.addNewsLocales.value;
 
     setDisable(true);
-    await axios.post("http://localhost:1337/newsapis", {
+    await axios.post("http://localhost:1337/newsposts", {
       title,
       imageUrl,
       writtenBy,

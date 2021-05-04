@@ -8,7 +8,7 @@ export default function NewsView() {
   const [news, setNews] = useState();
   useEffect(() => {
     async function getNews() {
-      const data = await axios.get("http://localhost:1337/newsapis/" + id);
+      const data = await axios.get("http://localhost:1337/newsposts/" + id);
       setNews(data?.data);
     }
     getNews();
@@ -16,7 +16,7 @@ export default function NewsView() {
 
   async function deleteNews() {
     if (window.confirm("Do you want to delete this news?")) {
-      await axios.delete("http://localhost:1337/newsapis/" + id);
+      await axios.delete("http://localhost:1337/newsposts/" + id);
       window.history.pushState(null, "", "/news");
       window.location.reload();
     }

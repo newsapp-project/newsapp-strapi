@@ -12,7 +12,7 @@ export default function NewsList() {
   useEffect(() => {
     async function fetchNews() {
       const data = await axios.get(
-        "http://localhost:1337/newsapis?_locale=" + locale
+        "http://localhost:1337/newsposts?_locale=" + locale
       );
       setNewsList([...data?.data]);
     }
