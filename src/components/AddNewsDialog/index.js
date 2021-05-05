@@ -1,8 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 export default function AddNewsDialog({ closeModal }) {
   const [disable, setDisable] = useState(false);
+  const history = useHistory();
 
   async function saveNews() {
     const title = window.newsTitle.value;
@@ -19,6 +21,7 @@ export default function AddNewsDialog({ closeModal }) {
       body,
       locale: lang,
     });
+    history.push("/news?_locale=" + lang);
     window.location.reload();
     setDisable(false);
   }
